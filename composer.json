@@ -1,5 +1,5 @@
 {
-  "name": "Aboaisheh/laravel-repository",
+  "name": "aboaisheh/laravel-repository",
   "description": "A Laravel package for generating repositories and services",
   "type": "library",
   "license": "MIT",
