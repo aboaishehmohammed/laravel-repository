@@ -1,0 +1,22 @@
+{
+  "name": "Aboaisheh/laravel-repository",
+  "description": "A Laravel package for generating repositories and services",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Aboaisheh\\LaravelRepository\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.2",
+    "illuminate/support": ">=5.0 <12.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Aboaisheh\\LaravelRepository\\Providers\\RepositoryServiceProvider"
+      ]
+    }
+  }
+}
