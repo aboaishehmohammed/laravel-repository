@@ -9,7 +9,7 @@ A powerful package for generating repositories and services in Laravel applicati
 
 - Create repositories that adhere to a common contract.
 - Automatically inject models into repositories.
-- generate corresponding services for repositories.
+- Optionally generate corresponding services for repositories.
 - Compatible with all Laravel versions from 5.x to 10.x and beyond.
 
 ---
@@ -24,6 +24,7 @@ Install the package using Composer:
 composer require aboaisheh/laravel-repository
 ```
 
+---
 
 ## **Usage**
 
@@ -42,7 +43,15 @@ php artisan make:repository User
 
 This command creates:
 - **Repository**: `app/Repositories/UserRepository.php`
-- **Service** : `app/Services/UserService.php`
+
+To also generate a service along with the repository, use the `--service` flag:
+```bash
+php artisan make:repository User --service
+```
+
+This will create:
+- **Repository**: `app/Repositories/UserRepository.php`
+- **Service**: `app/Services/UserService.php`
 
 ---
 
@@ -97,6 +106,8 @@ class UserRepository implements RepositoryContract
 }
 ```
 
+---
+
 ### **3. Using Repositories in Controllers**
 
 Inject the repository or service into your controllers:
@@ -146,3 +157,24 @@ class UserController extends Controller
 
 ---
 
+## **Customization**
+
+You can now generate only the repository or both the repository and service, depending on your requirements.
+
+### **Generate Repository Only**
+```bash
+php artisan make:repository ModelName
+```
+
+### **Generate Repository with Service**
+```bash
+php artisan make:repository ModelName --service
+```
+
+This flexibility allows you to use only what you need, keeping your project clean and efficient.
+
+---
+
+## **License**
+
+This package is open-sourced software licensed under the [MIT License](LICENSE).
