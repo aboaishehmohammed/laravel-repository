@@ -34,7 +34,7 @@ class {$name}Repository implements RepositoryContract
 
     public function find(\$id)
     {
-        return \$this->{$variableName}->find(\$id);
+        return \$this->{$variableName}->findOrFail(\$id);
     }
 
     public function create(array \$data)
@@ -44,21 +44,15 @@ class {$name}Repository implements RepositoryContract
 
     public function update(\$id, array \$data)
     {
-        \$record = \$this->{$variableName}->find(\$id);
-        if (\$record) {
-            \$record->update(\$data);
-            return \$record;
-        }
-        return null;
+        \$record = \$this->{$variableName}->findOrFail(\$id);
+        \$record->update(\$data);
+        return \$record;
     }
 
     public function delete(\$id)
     {
-        \$record = \$this->{$variableName}->find(\$id);
-        if (\$record) {
-            return \$record->delete();
-        }
-        return false;
+        \$record = \$this->{$variableName}->findOrFail(\$id);
+        return \$record->delete();
     }
 }
 EOT;
